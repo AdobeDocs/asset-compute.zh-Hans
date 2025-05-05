@@ -15,7 +15,7 @@ ht-degree: 0%
 
 若要在不重新部署应用程序的情况下获取相同的URL，请使用[`aio app get-url`](https://github.com/adobe/aio-cli#aio-app-get-url-action)命令。
 
-在 [!DNL Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)的[处理配置文件中使用URL将您的应用程序与[!DNL Experience Manager]作为[!DNL Cloud Service]集成。
+在 [!DNL Experience Manager] as a [!DNL Cloud Service][&#128279;](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)的处理配置文件中使用URL将您的应用程序与[!DNL Experience Manager]作为[!DNL Cloud Service]集成。
 
 确保您的App Builder项目和工作区对应到要在其中使用操作的[!DNL Experience Manager] as a [!DNL Cloud Service]环境。 它具有不同的开发、暂存和生产环境。 您可以通过检查在Adobe Developer App Builder应用程序根目录的ENV文件中定义的`AIO_runtime_*`凭据来验证环境。 例如，要部署到`Stage`工作区，`AIO_runtime_namespace`的格式为`xxxxxx_xxxxxxxxx_stage`。 要将作为[!DNL Cloud Service]生产环境与[!DNL Experience Manager]集成，请使用Adobe Developer App Builder `Production`工作区中的应用程序URL。
 

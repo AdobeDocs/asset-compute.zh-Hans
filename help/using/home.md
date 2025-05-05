@@ -17,7 +17,7 @@ ht-degree: 0%
 
 [!DNL Asset Compute Service]支持多种文件格式的转换并与许多Adobe服务集成。 查看[支持的文件格式和集成服务的列表](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support)。
 
-查看有关 [!DNL Adobe Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/asset-microservices-overview)中提供的[资源微服务功能以及如何在[!DNL Experience Manager]中使用微服务的概述。
+查看有关 [!DNL Adobe Experience Manager] as a [!DNL Cloud Service][&#128279;](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/asset-microservices-overview)中提供的资源微服务功能以及如何在[!DNL Experience Manager]中使用微服务的概述。
 
 [!DNL Asset Compute Service]可扩展性是在[github.com/adobe](https://github.com/adobe)上的开放开发模型下开发的，它欢迎扩展开发人员的参与。 与开发、创建、测试和部署自定义应用程序相关的所有组件都是开源的。 查看[计算服务](contribute-to-compute-service.md)的参与方式及位置。
 

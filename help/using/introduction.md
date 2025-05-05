@@ -15,7 +15,7 @@ ht-degree: 1%
 
 开发人员可以插入自定义资产应用程序（也称为自定义工作程序），以解决自定义用例。 该服务在Adobe[!DNL I/O Runtime]上工作。 它可通过在Node.js中编写的[!DNL Adobe Developer App Builder]个Headless应用程序进行扩展。 他们可以执行自定义操作，例如调用外部API以执行图像操作或利用[!DNL Adobe Sensei]支持。
 
-[!DNL Adobe Developer App Builder]是一个框架，用于在Adobe[!DNL I/O Runtime]上生成和部署自定义Web应用程序以扩展Adobe Experience Cloud解决方案。 要创建自定义应用程序，开发人员可以利用[!DNL React Spectrum](Adobe的UI工具包)、创建微服务、创建自定义事件和编排API。 请参阅Adobe Developer App Builder](https://developer.adobe.com/app-builder/docs/overview/)的[文档。
+[!DNL Adobe Developer App Builder]是一个框架，用于在Adobe[!DNL I/O Runtime]上生成和部署自定义Web应用程序以扩展Adobe Experience Cloud解决方案。 要创建自定义应用程序，开发人员可以利用[!DNL React Spectrum] (Adobe的UI工具包)、创建微服务、创建自定义事件和编排API。 请参阅Adobe Developer App Builder[&#128279;](https://developer.adobe.com/app-builder/docs/overview/)的文档。
 
 >[!NOTE]
 >
