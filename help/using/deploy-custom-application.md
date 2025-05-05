@@ -25,4 +25,4 @@ ht-degree: 0%
 
 >[!MORELIKETHIS]
 >
->* [了解并管理 [!DNL Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/using-cloud-manager/manage-environments)中的环境。
+>* [了解并管理 [!DNL Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/implementing/using-cloud-manager/manage-environments)中的环境。

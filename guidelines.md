@@ -31,7 +31,7 @@ ht-degree: 33%
 
 欢迎您对改进文档的任何想法作为投稿。 但是，评论、问题和拉取请求仅适用于 *投稿* 仅限。 它们不是为了回答您关于如何使用产品、实施项目或解决技术问题。
 
-如果您对使用情况或技术错误有任何疑问，应采用常规支持流程通过 [[!DNL Experience Manager] 客户支持门户](https://experienceleague.adobe.com/?support-solution=Experience+Manager#home) 或在 [[!DNL Experience Manager] 社区](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/ct-p/adobe-experience-manager-community).
+如果您对使用情况或技术错误有任何疑问，应采用常规支持流程通过 [[!DNL Experience Manager] 客户支持门户](https://experienceleague.adobe.com/zh-hans?support-solution=Experience+Manager#home) 或在 [[!DNL Experience Manager] 社区](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/ct-p/adobe-experience-manager-community).
 
 ***文档投稿无法替代Adobe客户关怀*** 任何试图获取支持相关问题答案的此类投稿都将被拒绝。
 
