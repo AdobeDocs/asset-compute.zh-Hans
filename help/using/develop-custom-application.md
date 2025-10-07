@@ -2,9 +2,9 @@
 title: 为 [!DNL Asset Compute Service]开发
 description: 使用 [!DNL Asset Compute Service]创建自定义应用程序。
 exl-id: a0c59752-564b-4bb6-9833-ab7c58a7f38e
-source-git-commit: db38b9dc27505aa7e04cf58a646005fc2e0e8782
+source-git-commit: 94fd8c0888185f64825046b7999655e9501a71fe
 workflow-type: tm+mt
-source-wordcount: '1542'
+source-wordcount: '1489'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ ht-degree: 0%
 
 ## 创建自定义应用程序 {#create-custom-application}
 
-确保在本地安装[Adobeaio-cli](https://github.com/adobe/aio-cli)。
+确保在本地安装[Adobe aio-cli](https://github.com/adobe/aio-cli)。
 
 1. 要创建自定义应用程序，请[创建一个App Builder项目](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli)。 为此，请在终端中运行`aio app init <app-name>`。
 
@@ -64,7 +64,7 @@ ht-degree: 0%
 
    请在此处阅读App Builder应用程序的[主要组件](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#5-anatomy-of-an-app-builder-application)。
 
-   模板应用程序利用Adobe的[Asset computeSDK](https://github.com/adobe/asset-compute-sdk#asset-compute-sdk)来上传、下载和协调应用程序呈现，因此开发人员只需要实施自定义应用程序逻辑。 在`actions/<worker-name>`文件夹中，`index.js`文件是添加自定义应用程序代码的位置。
+   模板应用程序利用Adobe的[Asset Compute SDK](https://github.com/adobe/asset-compute-sdk#asset-compute-sdk)来上传、下载和协调应用程序呈现，因此开发人员只需实施自定义应用程序逻辑即可。 在`actions/<worker-name>`文件夹中，`index.js`文件是添加自定义应用程序代码的位置。
 
 有关自定义应用程序的示例和想法，请参阅[自定义应用程序示例](#try-sample)。
 
@@ -83,24 +83,24 @@ If you did not log in, refer to our troubleshooting guide to [set up credentials
 
 >[!NOTE]
 >
->此容器与[!DNL Adobe Experience Manager]作为[!DNL Cloud Service]的云存储是分开的。 它仅适用于使用Asset compute开发人员工具进行开发和测试。
+>此容器与[!DNL Adobe Experience Manager]作为[!DNL Cloud Service]的云存储是分开的。 它仅适用于使用Asset Compute开发人员工具进行开发和测试。
 
 确保有权访问[支持的云存储容器](https://github.com/adobe/asset-compute-devtool#prerequisites)。 此容器由不同的开发人员在必要时共同用于不同的项目。
 
 #### 将凭据添加到环境文件 {#add-credentials-env-file}
 
 将开发工具的后续凭据插入到`.env`文件中。 该文件位于App Builder项目的根目录下：
+<!--
+1. Add the absolute path to the private key file created while adding services to your App Builder Project:
 
-1. 将绝对路径添加到在向App Builder项目添加服务时创建的私钥文件：
-
-   ```conf
-   ASSET_COMPUTE_PRIVATE_KEY_FILE_PATH=
-   ```
+    ```conf
+    ASSET_COMPUTE_PRIVATE_KEY_FILE_PATH=
+    ```
 
    >[!NOTE]
    >
-   >JWT已弃用，私钥不可下载。 在我们更新测试工具时，请注意，使用OAuth创建的自定义工作程序可以部署，但devtools无法正常工作。
-
+   >JWT is deprecated and Private Key is not available for download. While we are working on updating the testing tools, note that custom workers created using OAuth can be deployed but devtools would not work.
+-->
 1. 从Adobe Developer Console下载文件。 转到项目的根目录并单击右上角的“全部下载”。 文件下载时文件名为`<namespace>-<workspace>.json`。 执行下列操作之一：
 
    * 将文件重命名为`console.json`，并将其移动到项目的根目录中。
@@ -131,9 +131,9 @@ If you did not log in, refer to our troubleshooting guide to [set up credentials
 
 ## 执行应用程序 {#run-custom-application}
 
-在使用Asset compute开发人员工具执行应用程序之前，请正确配置[凭据](#developer-tool-credentials)。
+在使用Asset Compute开发人员工具执行应用程序之前，请正确配置[凭据](#developer-tool-credentials)。
 
-要在开发人员工具中运行应用程序，请使用`aio app run`命令。 它将部署操作以Adobe[!DNL I/O Runtime]，并在本地计算机上启动开发工具。 此工具用于在开发期间测试应用程序请求。 以下是格式副本请求示例：
+要在开发人员工具中运行应用程序，请使用`aio app run`命令。 它将操作部署到Adobe [!DNL I/O Runtime]，并在本地计算机上启动开发工具。 此工具用于在开发期间测试应用程序请求。 以下是格式副本请求示例：
 
 ```json
 "renditions": [
@@ -146,11 +146,11 @@ If you did not log in, refer to our troubleshooting guide to [set up credentials
 
 >[!NOTE]
 >
->请勿在`run`命令中使用`--local`标志。 它不适用于[!DNL Asset Compute]自定义应用程序和Asset compute开发人员工具。 自定义应用程序由[!DNL Asset Compute]服务调用，该服务无法访问在开发人员的本地计算机上运行的操作。
+>请勿在`--local`命令中使用`run`标志。 它不适用于[!DNL Asset Compute]自定义应用程序和Asset Compute开发人员工具。 自定义应用程序由[!DNL Asset Compute]服务调用，该服务无法访问在开发人员的本地计算机上运行的操作。
 
 请参阅[此处](test-custom-application.md)如何测试和调试您的应用程序。 完成自定义应用程序的开发后，[部署自定义应用程序](deploy-custom-application.md)。
 
-## 尝试由Adobe提供的示例应用程序 {#try-sample}
+## 尝试使用Adobe提供的示例应用程序 {#try-sample}
 
 以下是自定义应用程序示例：
 
@@ -226,9 +226,9 @@ exports.main = worker(async function (source, rendition) {
 
 ## 身份验证和授权支持 {#authentication-authorization-support}
 
-默认情况下，Asset compute自定义应用程序附带App Builder项目的授权和身份验证检查。 通过在`manifest.yml`中将`require-adobe-auth`注释设置为`true`启用。
+默认情况下，Asset Compute自定义应用程序将随附App Builder项目的授权和身份验证检查。 通过在`require-adobe-auth`中将`true`注释设置为`manifest.yml`启用。
 
-### 访问其他AdobeAPI {#access-adobe-apis}
+### 访问其他Adobe API {#access-adobe-apis}
 
 <!-- TBD: Revisit this section. Where do we document console workspace creation?
 -->
@@ -245,7 +245,7 @@ const orgId = params.auth.orgId; // Experience Cloud Organization
 
 要处理其他外部服务的凭据，请将这些凭据作为默认参数传递给操作。 在传输过程中会自动对它们进行加密。 有关详细信息，请参阅Adobe I/O Runtime开发人员指南中的[创建操作](https://developer.adobe.com/runtime/docs/guides/using/creating_actions/)。 然后在部署期间使用环境变量设置它们。 可以在操作内的`params`对象中访问这些参数。
 
-在`manifest.yml`的`inputs`内设置默认参数：
+在`inputs`的`manifest.yml`内设置默认参数：
 
 ```yaml
 packages:
@@ -278,7 +278,7 @@ const key = params.secretKey;
 
 ## 调整应用程序大小 {#sizing-workers}
 
-应用程序在Adobe[!DNL I/O Runtime]的容器中运行，该容器具有[限制](https://developer.adobe.com/runtime/docs/guides/using/system_settings/)，可以通过`manifest.yml`进行配置：
+应用程序在Adobe [!DNL I/O Runtime]的容器中运行，该容器具有[限制](https://developer.adobe.com/runtime/docs/guides/using/system_settings/)，可以通过`manifest.yml`进行配置：
 
 ```yaml
     actions:
@@ -290,14 +290,14 @@ const key = params.secretKey;
           concurrency: 1
 ```
 
-由于Asset compute应用程序执行的大量处理，您必须调整这些限制以实现最佳性能（足够大以处理二进制资源）和效率（不会由于未使用的容器内存而浪费资源）。
+由于Asset Compute应用程序执行的大量处理，您必须调整这些限制以实现最佳性能（足够大以处理二进制资源）和效率（不会由于未使用的容器内存而浪费资源）。
 
 运行时中操作的默认超时为一分钟，但可以通过设置`timeout`限制（以毫秒为单位）来增加此超时。 如果您希望处理较大的文件，请增加此时间。 考虑下载源、处理文件和上传演绎版所需的总时间。 如果操作超时，也就是说，它不会在指定的超时限制之前返回激活，运行时将放弃容器，而不重新使用它。
 
-asset compute应用本质上是网络和磁盘输入或输出绑定。 必须先下载源文件。 处理过程通常占用大量资源，然后会再次上传生成的演绎版。
+Asset Compute应用程序本质上是网络和磁盘输入或输出绑定。 必须先下载源文件。 处理过程通常占用大量资源，然后会再次上传生成的演绎版。
 
-您可以使用`memorySize`参数指定分配给操作容器的内存（以MB为单位）。 目前，此参数还定义容器获得的CPU访问量，最重要的是，这是使用运行时成本的关键元素（容器越大，成本越高）。 当您的处理需要更多的内存或CPU时，请在此处使用更大的值，但请注意不要浪费资源，因为容器越大，总吞吐量就越低。
+您可以使用`memorySize`参数指定分配给操作容器的内存（以MB为单位）。 目前，此参数还定义了CPU获取容器的访问量，最重要的是，这是使用运行时成本的关键元素（容器越大，成本越高）。 当您的处理需要更多内存或CPU时，请在此处使用更大的值，但请小心不要由于容器越大，总吞吐量越低，而浪费资源。
 
-此外，可以使用`concurrency`设置控制容器中的操作并发。 此设置是单个容器（属于相同操作）获取的并发激活数。 在此模型中，操作容器类似于Node.js服务器，可以接收多个并发请求，最大程度达到该限制。 运行时中的默认`memorySize`设置为200 MB，适用于较小的App Builder操作。 对于Asset compute应用程序，由于本地处理和磁盘使用量较大，因此此默认值可能过高。 某些应用程序可能也无法很好地与并发活动配合使用，具体取决于其实施。 asset computeSDK通过将文件写入不同的唯一文件夹来确保分隔激活。
+此外，可以使用`concurrency`设置控制容器中的操作并发。 此设置是单个容器（属于相同操作）获取的并发激活数。 在此模型中，操作容器类似于Node.js服务器，可以接收多个并发请求，最大程度达到该限制。 运行时中的默认`memorySize`设置为200 MB，适用于较小的App Builder操作。 对于Asset Compute应用程序，由于本地处理和磁盘使用量较大，因此此默认值可能过高。 某些应用程序可能也无法很好地与并发活动配合使用，具体取决于其实施。 Asset Compute SDK通过将文件写入不同的唯一文件夹来确保分隔激活。
 
 测试应用程序以找到`concurrency`和`memorySize`的最佳数量。 更大的容器=更高的内存限制可能会允许更多的并发性，但也可能对较低的流量造成浪费。
