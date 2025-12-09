@@ -2,9 +2,9 @@
 title: 了解自定义应用程序的工作情况
 description: ' [!DNL Asset Compute Service] 自定义应用程序的内部工作，以帮助了解其工作方式。'
 exl-id: a3ee6549-9411-4839-9eff-62947d8f0e42
-source-git-commit: f15b9819d3319d22deccdf7e39c0f72728baaa39
+source-git-commit: f199cecfe4409e2370b30783f984062196dd807d
 workflow-type: tm+mt
-source-wordcount: '691'
+source-wordcount: '689'
 ht-degree: 0%
 
 ---
@@ -15,11 +15,11 @@ ht-degree: 0%
 
 ![自定义应用程序工作流](assets/customworker.svg)
 
-*图：使用Adobe[!DNL Asset Compute Service].*&#x200B;处理资源时涉及的步骤
+*图：使用Adobe [!DNL Asset Compute Service]处理资源时涉及的步骤。*
 
 ## 注册 {#registration}
 
-客户端必须在第一次向[`/process`](api.md#process-request)发出请求之前调用[`/register`](api.md#register)一次，以便设置和检索日志URL以接收AdobeAsset compute的Adobe[!DNL I/O Events]事件。
+客户端必须在第一次向[`/register`](api.md#register)发出请求之前调用一次[`/process`](api.md#process-request)，以便设置和检索日志URL以接收Adobe Asset Compute的Adobe [!DNL I/O Events]事件。
 
 ```sh
 curl -X POST \
@@ -48,7 +48,7 @@ curl -X POST \
 
 客户端负责使用预签名URL正确设置演绎版格式。 可在NodeJS应用程序中使用[`@adobe/node-cloud-blobstore-wrapper`](https://github.com/adobe/node-cloud-blobstore-wrapper#presigned-urls) JavaScript库对URL进行预签名。 目前，该库仅支持Azure Blob Storage和AWS S3容器。
 
-处理请求返回可用于轮询[!DNL Adobe I/O]事件的`requestId`。
+处理请求返回可用于轮询`requestId`事件的[!DNL Adobe I/O]。
 
 下面是一个自定义应用程序处理请求示例。
 
@@ -68,9 +68,9 @@ curl -X POST \
 }
 ```
 
-[!DNL Asset Compute Service]将自定义应用程序演绎版请求发送到自定义应用程序。 它使用HTTPPOST访问提供的应用程序URL，该URL是来自App Builder的安全Web操作URL。 所有请求都使用HTTPS协议来最大限度地提高数据安全性。
+[!DNL Asset Compute Service]将自定义应用程序演绎版请求发送到自定义应用程序。 它会使用HTTP POST访问提供的应用程序URL，该URL是来自App Builder的安全Web操作URL。 所有请求都使用HTTPS协议来最大限度地提高数据安全性。
 
-自定义应用程序使用的[Asset computeSDK](https://github.com/adobe/asset-compute-sdk#adobe-asset-compute-worker-sdk)处理HTTPPOST请求。 它还处理源下载、上传演绎版、发送Adobe[!DNL I/O Events]和错误处理。
+自定义应用程序使用的[Asset Compute SDK](https://github.com/adobe/asset-compute-sdk#adobe-asset-compute-worker-sdk)处理HTTP POST请求。 它还处理源下载、上传演绎版、发送Adobe [!DNL I/O Events]和错误处理。
 
 <!-- TBD: Add the application diagram. -->
 
@@ -96,7 +96,7 @@ exports.main = worker(async (source, rendition) => {
 
 ### 下载源文件 {#download-source}
 
-自定义应用程序仅处理本地文件。 [Asset computeSDK](https://github.com/adobe/asset-compute-sdk#adobe-asset-compute-worker-sdk)处理源文件的下载。
+自定义应用程序仅处理本地文件。 [Asset Compute SDK](https://github.com/adobe/asset-compute-sdk#adobe-asset-compute-worker-sdk)处理源文件的下载。
 
 ### 创建演绎版 {#rendition-creation}
 
@@ -106,21 +106,21 @@ SDK为每个节目调用异步[节目回调函数](https://github.com/adobe/asse
 
 通过对示例的过度简化，说明了自定义应用程序的剖析。 应用程序只会将源文件复制到节目目标。
 
-有关演绎版回调参数的更多信息，请参阅[Asset computeSDK API](https://github.com/adobe/asset-compute-sdk#api-details)。
+有关演绎版回调参数的更多信息，请参阅[Asset Compute SDK API](https://github.com/adobe/asset-compute-sdk#api-details)。
 
 ### 上传节目 {#upload-rendition}
 
-在每个演绎版创建并存储在`rendition.path`提供的路径的文件中后，[Asset computeSDK](https://github.com/adobe/asset-compute-sdk#adobe-asset-compute-worker-sdk)会将每个演绎版上传到云存储(AWS或Azure)。 当且仅当传入请求具有多个指向同一应用程序URL的演绎版时，自定义应用程序才会同时获取多个演绎版。 上传到云存储是在每个演绎版之后并为下一个演绎版运行回调之前完成的。
+在用`rendition.path`提供的路径创建并存储每个演绎版后，[Asset Compute SDK](https://github.com/adobe/asset-compute-sdk#adobe-asset-compute-worker-sdk)会将每个演绎版上传到云存储(AWS或Azure)。 当且仅当传入请求具有多个指向同一应用程序URL的演绎版时，自定义应用程序才会同时获取多个演绎版。 上传到云存储是在每个演绎版之后并为下一个演绎版运行回调之前完成的。
 
 `batchWorker()`具有不同的行为。 它会处理所有演绎版，并且只有在处理完所有演绎版后，才会上传它们。
 
-## [!DNL Adobe I/O]个事件 {#aio-events}
+## [!DNL Adobe I/O Events] {#aio-events}
 
-SDK为每个呈现版本发送Adobe[!DNL I/O Events]。 这些事件的类型是`rendition_created`或`rendition_failed`，具体取决于结果。 有关详细信息，请参阅[Asset compute异步事件](api.md#asynchronous-events)。
+SDK为每个演绎版发送Adobe [!DNL I/O Events]。 这些事件的类型是`rendition_created`或`rendition_failed`，具体取决于结果。 有关详细信息，请参阅[Asset Compute异步事件](api.md#asynchronous-events)。
 
-## 接收[!DNL Adobe I/O]个事件 {#receive-aio-events}
+## 接收[!DNL Adobe I/O Events] {#receive-aio-events}
 
-客户端根据其使用逻辑轮询Adobe[!DNL I/O Events]日志。 初始日记账URL是`/register` API响应中提供的URL。 可以使用事件中存在的`requestId`识别事件，该值与在`/process`中返回的相同。 每个演绎版都有一个单独的事件，在上传（或失败）演绎版后立即发送该事件。 当客户端收到匹配事件时，可以显示或以其他方式处理生成的演绎版。
+客户端根据其使用逻辑轮询Adobe [!DNL I/O Events]日志。 初始日记账URL是`/register` API响应中提供的URL。 可以使用事件中存在的`requestId`识别事件，该值与在`/process`中返回的相同。 每个演绎版都有一个单独的事件，在上传（或失败）演绎版后立即发送该事件。 当客户端收到匹配事件时，可以显示或以其他方式处理生成的演绎版。
 
 JavaScript库[`asset-compute-client`](https://github.com/adobe/asset-compute-client#usage)使用`waitActivation()`方法简化日志轮询以获取所有事件。
 
@@ -140,7 +140,7 @@ await Promise.all(events.map(event => {
 }));
 ```
 
-有关如何获取日志事件的详细信息，请参阅Adobe[[!DNL I/O Events] API](https://developer.adobe.com/events/docs/guides/api/journaling_api/)。
+有关如何获取日志事件的详细信息，请参阅Adobe [[!DNL I/O Events] API](https://developer.adobe.com/events/docs/guides/api/journaling-api#)。
 
 <!-- TBD:
 * Illustration of the controls/data flow.
