@@ -2,9 +2,9 @@
 title: 了解自定义应用程序的工作情况
 description: ' [!DNL Asset Compute Service] 自定义应用程序的内部工作，以帮助了解其工作方式。'
 exl-id: a3ee6549-9411-4839-9eff-62947d8f0e42
-source-git-commit: f199cecfe4409e2370b30783f984062196dd807d
+source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
 workflow-type: tm+mt
-source-wordcount: '689'
+source-wordcount: '786'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ ht-degree: 0%
 
 ## 注册 {#registration}
 
-客户端必须在第一次向[`/register`](api.md#register)发出请求之前调用一次[`/process`](api.md#process-request)，以便设置和检索日志URL以接收Adobe Asset Compute的Adobe [!DNL I/O Events]事件。
+客户端必须在第一次向[`/process`](api.md#process-request)发出请求之前调用一次[`/register`](api.md#register)，以便设置和检索日志URL以接收Adobe Asset Compute的Adobe [!DNL I/O Events]事件。
 
 ```sh
 curl -X POST \
@@ -48,7 +48,7 @@ curl -X POST \
 
 客户端负责使用预签名URL正确设置演绎版格式。 可在NodeJS应用程序中使用[`@adobe/node-cloud-blobstore-wrapper`](https://github.com/adobe/node-cloud-blobstore-wrapper#presigned-urls) JavaScript库对URL进行预签名。 目前，该库仅支持Azure Blob Storage和AWS S3容器。
 
-处理请求返回可用于轮询`requestId`事件的[!DNL Adobe I/O]。
+处理请求返回可用于轮询[!DNL Adobe I/O]事件的`requestId`。
 
 下面是一个自定义应用程序处理请求示例。
 
@@ -72,7 +72,9 @@ curl -X POST \
 
 自定义应用程序使用的[Asset Compute SDK](https://github.com/adobe/asset-compute-sdk#adobe-asset-compute-worker-sdk)处理HTTP POST请求。 它还处理源下载、上传演绎版、发送Adobe [!DNL I/O Events]和错误处理。
 
-<!-- TBD: Add the application diagram. -->
+<!-- 
+TBD: Add the application diagram. 
+-->
 
 ### 应用程序代码 {#application-code}
 
@@ -110,7 +112,7 @@ SDK为每个节目调用异步[节目回调函数](https://github.com/adobe/asse
 
 ### 上传节目 {#upload-rendition}
 
-在用`rendition.path`提供的路径创建并存储每个演绎版后，[Asset Compute SDK](https://github.com/adobe/asset-compute-sdk#adobe-asset-compute-worker-sdk)会将每个演绎版上传到云存储(AWS或Azure)。 当且仅当传入请求具有多个指向同一应用程序URL的演绎版时，自定义应用程序才会同时获取多个演绎版。 上传到云存储是在每个演绎版之后并为下一个演绎版运行回调之前完成的。
+在以`rendition.path`提供的路径创建并存储每个演绎版后，[Asset Compute SDK](https://github.com/adobe/asset-compute-sdk#adobe-asset-compute-worker-sdk)会将每个演绎版上传到云存储（AWS或Azure）。 当且仅当传入请求具有多个指向同一应用程序URL的演绎版时，自定义应用程序才会同时获取多个演绎版。 上传到云存储是在每个演绎版之后并为下一个演绎版运行回调之前完成的。
 
 `batchWorker()`具有不同的行为。 它会处理所有演绎版，并且只有在处理完所有演绎版后，才会上传它们。
 
@@ -142,7 +144,8 @@ await Promise.all(events.map(event => {
 
 有关如何获取日志事件的详细信息，请参阅Adobe [[!DNL I/O Events] API](https://developer.adobe.com/events/docs/guides/api/journaling-api#)。
 
-<!-- TBD:
+<!-- 
+TBD:
 * Illustration of the controls/data flow.
 * Basic overview, in text and not code, of how an application works.
 -->

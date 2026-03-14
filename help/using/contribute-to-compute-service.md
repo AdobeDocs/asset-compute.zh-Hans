@@ -2,10 +2,10 @@
 title: 参与 [!DNL Asset Compute Service]的开源组件
 description: 参与 [!DNL Asset Compute Service]的开源组件。
 exl-id: 99a4b4d9-4709-4f8e-9f8c-96ba1783c4c3
-source-git-commit: 63f83ff33ac6cd090fac4f6db18000155f464643
+source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
 workflow-type: tm+mt
-source-wordcount: '173'
-ht-degree: 0%
+source-wordcount: '225'
+ht-degree: 2%
 
 ---
 
@@ -21,13 +21,14 @@ ht-degree: 0%
 
 ## 可用资源和库 {#available-resources}
 
-查看[的](https://github.com/adobe/asset-compute-sdk#available-resources-and-libraries)开源库[!DNL Asset Compute Service]的列表。 此外，可用的[!DNL Adobe I/O] Runtime和OpenWhisk资源包括：
+查看[!DNL Asset Compute Service]的[开源库](https://github.com/adobe/asset-compute-sdk#available-resources-and-libraries)的列表。 此外，可用的[!DNL Adobe I/O] Runtime和OpenWhisk资源包括：
 
 * [开始使用Apache OpenWhisk](https://github.com/apache/openwhisk/tree/master/docs#getting-started-with-openwhisk)。
-* [实验室：使用 [!DNL Adobe Sensei] 函数和Adobe [!DNL I/O Runtime]](https://opensource.adobe.com/adobe-sensei-ai-functions/index.html)生成可组合人工智能。
+* [实验室：使用 [!DNL Adobe Sensei] 函数和Adobe [！DNL I/O Runtime]](https://opensource.adobe.com/adobe-sensei-ai-functions/index.html)生成可组合人工智能。
 * Adobe [[!DNL I/O Runtime] 常见问题解答](https://developer.adobe.com/app-builder/docs/intro_and_overview/faq#using-io-runtime)。
 
-<!-- **TBD** for post-release:
+<!-- 
+**TBD** for post-release:
 * Link to Adobe Developer App Builder open-source components.
 * Issues in `aio` can be reported in Adobe Developer App Builder repos.
 * Issues in asset-compute-sdk or devtool goes into the relevant repos from Nui.

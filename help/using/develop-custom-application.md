@@ -2,9 +2,9 @@
 title: 为 [!DNL Asset Compute Service]开发
 description: 使用 [!DNL Asset Compute Service]创建自定义应用程序。
 exl-id: a0c59752-564b-4bb6-9833-ab7c58a7f38e
-source-git-commit: 63f83ff33ac6cd090fac4f6db18000155f464643
+source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
 workflow-type: tm+mt
-source-wordcount: '1489'
+source-wordcount: '1722'
 ht-degree: 0%
 
 ---
@@ -72,7 +72,8 @@ ht-degree: 0%
 
 在创建应用程序时登录时，系统会在ENV文件中收集大多数App Builder凭据。 但是，使用开发人员工具需要其他凭据。
 
-<!-- TBD: Check if manual setup of credentials is required.
+<!-- 
+TBD: Check if manual setup of credentials is required.
 Manual set up of credentials is removed from troubleshooting and best practices page. Link was broken.
 If you did not log in, refer to our troubleshooting guide to [set up credentials manually](troubleshooting.md).
 -->
@@ -146,7 +147,7 @@ If you did not log in, refer to our troubleshooting guide to [set up credentials
 
 >[!NOTE]
 >
->请勿在`--local`命令中使用`run`标志。 它不适用于[!DNL Asset Compute]自定义应用程序和Asset Compute开发人员工具。 自定义应用程序由[!DNL Asset Compute]服务调用，该服务无法访问在开发人员的本地计算机上运行的操作。
+>请勿在`run`命令中使用`--local`标志。 它不适用于[!DNL Asset Compute]自定义应用程序和Asset Compute开发人员工具。 自定义应用程序由[!DNL Asset Compute]服务调用，该服务无法访问在开发人员的本地计算机上运行的操作。
 
 请参阅[此处](test-custom-application.md)如何测试和调试您的应用程序。 完成自定义应用程序的开发后，[部署自定义应用程序](deploy-custom-application.md)。
 
@@ -155,7 +156,7 @@ If you did not log in, refer to our troubleshooting guide to [set up credentials
 以下是自定义应用程序示例：
 
 * [worker-basic](https://github.com/adobe/asset-compute-example-workers/tree/master/projects/worker-basic)
-* [worker-animal-pictures](https://github.com/adobe/asset-compute-example-workers/tree/master/projects/worker-animal-pictures)
+* [工人动物图片](https://github.com/adobe/asset-compute-example-workers/tree/master/projects/worker-animal-pictures)
 
 ### 模板自定义应用程序 {#template-custom-application}
 
@@ -191,7 +192,8 @@ exports.main = worker(async function (source, rendition) {
 
 例如，[`worker-animal-pictures`](https://github.com/adobe/asset-compute-example-workers/blob/master/projects/worker-animal-pictures/worker-animal-pictures.js#L46)使用[`node-httptransfer`](https://github.com/adobe/node-httptransfer#node-httptransfer)库从Wikimedia向静态URL发出提取请求。
 
-<!-- TBD: Revisit later to see if this note is required.
+<!-- 
+TBD: Revisit later to see if this note is required.
 >[!NOTE]
 >
 >For extra authorization for these API calls, see [custom authorization checks](#custom-authorization-checks).
@@ -226,11 +228,12 @@ exports.main = worker(async function (source, rendition) {
 
 ## 身份验证和授权支持 {#authentication-authorization-support}
 
-默认情况下，Asset Compute自定义应用程序将随附App Builder项目的授权和身份验证检查。 通过在`require-adobe-auth`中将`true`注释设置为`manifest.yml`启用。
+默认情况下，Asset Compute自定义应用程序将随附App Builder项目的授权和身份验证检查。 通过在`manifest.yml`中将`require-adobe-auth`注释设置为`true`启用。
 
 ### 访问其他Adobe API {#access-adobe-apis}
 
-<!-- TBD: Revisit this section. Where do we document console workspace creation?
+<!-- 
+TBD: Revisit this section. Where do we document console workspace creation?
 -->
 
 将API服务添加到在安装中创建的[!DNL Asset Compute]控制台工作区。 这些服务是[!DNL Asset Compute Service]生成的JWT访问令牌的一部分。 可在应用程序操作`params`对象中访问令牌和其他凭据。
@@ -245,7 +248,7 @@ const orgId = params.auth.orgId; // Experience Cloud Organization
 
 要处理其他外部服务的凭据，请将这些凭据作为默认参数传递给操作。 在传输过程中会自动对它们进行加密。 有关详细信息，请参阅Adobe I/O Runtime开发人员指南中的[创建操作](https://developer.adobe.com/app-builder/docs/guides/runtime_guides/creating-actions#)。 然后在部署期间使用环境变量设置它们。 可以在操作内的`params`对象中访问这些参数。
 
-在`inputs`的`manifest.yml`内设置默认参数：
+在`manifest.yml`的`inputs`内设置默认参数：
 
 ```yaml
 packages:

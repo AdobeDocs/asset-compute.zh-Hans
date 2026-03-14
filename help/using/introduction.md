@@ -2,10 +2,10 @@
 title: ' [!DNL Asset Compute Service]简介'
 description: '[!DNL Asset Compute Service]是一种云原生资产处理服务，可降低复杂性并提高可扩展性。'
 exl-id: f8c89f65-5a94-44f3-aaac-4612ae291101
-source-git-commit: 63f83ff33ac6cd090fac4f6db18000155f464643
+source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
 workflow-type: tm+mt
-source-wordcount: '278'
-ht-degree: 1%
+source-wordcount: '355'
+ht-degree: 12%
 
 ---
 
@@ -15,7 +15,7 @@ ht-degree: 1%
 
 开发人员可以插入自定义资产应用程序（也称为自定义工作程序），以解决自定义用例。 该服务在Adobe [!DNL I/O Runtime]上工作。 它可通过在Node.js中编写的[!DNL Adobe Developer App Builder]个Headless应用程序进行扩展。 他们可以执行自定义操作，例如调用外部API以执行图像操作或利用[!DNL Adobe Sensei]支持。
 
-[!DNL Adobe Developer App Builder]是一个框架，用于在Adobe [!DNL I/O Runtime]上生成和部署自定义Web应用程序以扩展Adobe Experience Cloud解决方案。 要创建自定义应用程序，开发人员可以利用[!DNL React Spectrum] (Adobe的UI工具包)、创建微服务、创建自定义事件和编排API。 请参阅Adobe Developer App Builder[的](https://developer.adobe.com/app-builder/docs/intro_and_overview/#)文档。
+[!DNL Adobe Developer App Builder]是一个框架，用于在Adobe [!DNL I/O Runtime]上生成和部署自定义Web应用程序以扩展Adobe Experience Cloud解决方案。 要创建自定义应用程序，开发人员可以利用[!DNL React Spectrum] （Adobe的UI工具包）、创建微服务、创建自定义事件和编排API。 请参阅Adobe Developer App Builder](https://developer.adobe.com/app-builder/docs/intro_and_overview/#)的[文档。
 
 >[!NOTE]
 >
@@ -25,13 +25,14 @@ ht-degree: 1%
 
 [!DNL Asset Compute Service]支持一些常见的业务用例，如基本图像处理、Adobe应用程序特定的转换以及协调复杂业务需求的自定义应用程序创建。
 
-您可以使用[!DNL Asset Compute] Web服务为不同的文件类型生成缩略图，为[支持的文件格式](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/file-format-support)生成高质量的图像渲染。 查看通过自定义配置支持的[用例](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
+您可以使用[!DNL Asset Compute] Web服务为不同的文件类型生成缩略图，为[支持的文件格式](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support)生成高质量的图像渲染。 查看通过自定义配置支持的[用例](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
 
 >[!NOTE]
 >
 >该服务不提供资产存储。 用户提供它并对云存储中的源文件和演绎版文件位置提供引用。
 
-<!-- TBD: Should this be mentioned in the docs?
+<!-- 
+TBD: Should this be mentioned in the docs?
 
 |Asset Compute Service does not do this|Expectations from implementing client|
 |---|---|
@@ -46,9 +47,10 @@ ht-degree: 1%
 >
 >* [在 [!DNL Adobe Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/asset-microservices-overview)中使用资源微服务进行资源处理的概述。
 >* [Adobe Developer App Builder文档](https://developer.adobe.com/app-builder/docs/intro_and_overview/#)。
->* [支持的处理文件格式](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/file-format-support)。
+>* [支持的处理文件格式](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support)。
 
-<!-- **TBD:**
+<!-- 
+**TBD:**
 * Clarify the service can only be used within AEM as Cloud Service. The docs provided as context for custom application developers. Not to be used as a standalone service.
   ** and API as that plays a role in custom applications (accepting standard params, invoking Nui itself in the future, etc. (this is an outlook))
 

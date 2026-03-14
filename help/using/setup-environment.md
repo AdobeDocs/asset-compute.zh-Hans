@@ -2,10 +2,10 @@
 title: 设置 [!DNL Asset Compute Service]所需的开发环境
 description: 为 [!DNL Asset Compute Service] 设置开发人员环境，以开始创建和测试自定义代码。
 exl-id: 91c12889-01d8-4757-9bdd-f73c491cd9d5
-source-git-commit: 63f83ff33ac6cd090fac4f6db18000155f464643
+source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
 workflow-type: tm+mt
-source-wordcount: '360'
-ht-degree: 1%
+source-wordcount: '416'
+ht-degree: 3%
 
 ---
 
@@ -13,7 +13,7 @@ ht-degree: 1%
 
 要创建允许您为[!DNL Asset Compute Service]开发的设置，请按照以下要求和说明操作。
 
-1. [获取](https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#acquire-access-and-credentials)的访问权限和凭据[!DNL Adobe Developer App Builder]。
+1. [获取[!DNL Adobe Developer App Builder]的访问权限和凭据](https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#acquire-access-and-credentials)。
 
 1. [设置本地环境](https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#local-environment-set-up)和所需的工具。
 
@@ -38,21 +38,22 @@ ht-degree: 1%
 
 1. 确保[!DNL Experience Cloud]组织中有系统管理员或开发人员角色。 系统管理员在[Admin Console](https://adminconsole.adobe.com/overview)中设置此角色。
 
-1. 登录到[Adobe Developer Console](https://developer.adobe.com/console/user/servicesandapis)。 确保您作为[!DNL Experience Cloud]集成属于与[!DNL Experience Manager]相同的[!DNL Cloud Service]组织。 有关Adobe Developer Console的详细信息，请转到[控制台文档](https://developer.adobe.com/developer-console/docs/guides/)。
+1. 登录到[Adobe Developer Console](https://developer.adobe.com/console/user/servicesandapis)。 请确保您作为[!DNL Cloud Service]集成与[!DNL Experience Manager]属于同一[!DNL Experience Cloud]组织。 有关Adobe Developer Console的详细信息，请转到[控制台文档](https://developer.adobe.com/developer-console/docs/guides/)。
 
-1. [创建一个App Builder项目](https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#)。 单击&#x200B;**[!UICONTROL 从模板创建新项目]** > **[!UICONTROL 项目]**。 选择App Builder。 它将创建一个新的App Builder项目，该项目具有两个工作区：`Production`和`Stage`。 根据需要添加其他工作区，例如`Development`。
+1. [创建App Builder项目](https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#)。 单击&#x200B;**[!UICONTROL 创建新项目]** > **[!UICONTROL 从模板创建项目]**。 选择App Builder。 这将创建一个新的App Builder项目，其中包含两个工作区： `Production`和`Stage`。 根据需要添加其他工作区，例如`Development`。
 
-1. 在App Builder项目中，选择一个工作区并订阅Asset Compute所需的服务。 单击&#x200B;**添加到项目** > **API**&#x200B;并添加`Asset Compute`、`IO Events`和`IO Events Management`服务。 添加第一个API时，它会提示您创建私钥。 将此信息保存在计算机上，因为您需要此密钥才能使用开发人员工具测试自定义应用程序。
+1. 在App Builder项目中，选择工作区并订阅Asset compute所需的服务。 单击&#x200B;**添加到项目** > **API**&#x200B;并添加`Asset Compute`、`IO Events`和`IO Events Management`服务。 添加第一个API时，系统会提示您创建私钥。 将此信息保存到您的计算机上，因为您需要使用此密钥才能使用开发人员工具测试自定义应用程序。
 
    >[!NOTE]
    >
-   >JWT已弃用，私钥无法下载。 虽然Adobe正在努力更新测试工具，但请注意，使用OAuth创建的自定义工作程序可以部署，但devtools将无法工作。
+   >JWT已弃用，私钥不可下载。 当Adobe正在更新测试工具时，请注意，使用OAuth创建的自定义工作进程可以部署，但devtools不起作用。
 
 ## 下一步 {#next-step}
 
-设置好环境后，您便可以[创建自定义应用程序](develop-custom-application.md)。
+设置好环境后，您就可以[创建自定义应用程序](develop-custom-application.md)。
 
-<!-- More ideas:
+<!-- 
+More ideas:
  
 * Any steps in the beginning that lead to gotchas later should be called out for caution? For example,
   * don't change some defaults initially
