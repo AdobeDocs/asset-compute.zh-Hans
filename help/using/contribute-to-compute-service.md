@@ -24,7 +24,7 @@ ht-degree: 2%
 查看[!DNL Asset Compute Service]的[开源库](https://github.com/adobe/asset-compute-sdk#available-resources-and-libraries)的列表。 此外，可用的[!DNL Adobe I/O] Runtime和OpenWhisk资源包括：
 
 * [开始使用Apache OpenWhisk](https://github.com/apache/openwhisk/tree/master/docs#getting-started-with-openwhisk)。
-* [实验室：使用 [!DNL Adobe Sensei] 函数和Adobe [！DNL I/O Runtime]](https://opensource.adobe.com/adobe-sensei-ai-functions/index.html)生成可组合人工智能。
+* [实验室：使用 [!DNL Adobe Sensei] 函数和Adobe [!DNL I/O Runtime]](https://opensource.adobe.com/adobe-sensei-ai-functions/index.html)生成可组合人工智能。
 * Adobe [[!DNL I/O Runtime] 常见问题解答](https://developer.adobe.com/app-builder/docs/intro_and_overview/faq#using-io-runtime)。
 
 <!-- 
