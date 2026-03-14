@@ -25,7 +25,7 @@ ht-degree: 12%
 
 [!DNL Asset Compute Service]支持一些常见的业务用例，如基本图像处理、Adobe应用程序特定的转换以及协调复杂业务需求的自定义应用程序创建。
 
-您可以使用[!DNL Asset Compute] Web服务为不同的文件类型生成缩略图，为[支持的文件格式](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support)生成高质量的图像渲染。 查看通过自定义配置支持的[用例](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
+您可以使用[!DNL Asset Compute] Web服务为不同的文件类型生成缩略图，为[支持的文件格式](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/file-format-support)生成高质量的图像渲染。 查看通过自定义配置支持的[用例](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
 
 >[!NOTE]
 >
@@ -47,7 +47,7 @@ TBD: Should this be mentioned in the docs?
 >
 >* [在 [!DNL Adobe Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/asset-microservices-overview)中使用资源微服务进行资源处理的概述。
 >* [Adobe Developer App Builder文档](https://developer.adobe.com/app-builder/docs/intro_and_overview/#)。
->* [支持的处理文件格式](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support)。
+>* [支持的处理文件格式](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/file-format-support)。
 
 <!-- 
 **TBD:**
