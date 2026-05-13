@@ -2,9 +2,14 @@
 title: ' [!DNL Asset Compute Service]简介'
 description: '[!DNL Asset Compute Service]是一种云原生资产处理服务，可降低复杂性并提高可扩展性。'
 exl-id: f8c89f65-5a94-44f3-aaac-4612ae291101
-source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
+TQID: https://experienceleague.adobe.com/7B0ghzyLWIZFe5sthLaorFf8w4Az7FKW4ces27eo8I0
+product_v2: id: d09181b5-a36a-43de-ba01-36641440bc43id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+feature_v2: id: a01bfd36-4ab8-4bf8-9dc0-5b45b890552eid: da0dfbce-df02-4f8b-b32d-a4e3b1d05085
+role_v2: id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 2510f77fed8d0f0708e09f32d0b13a437d2ede4f
 workflow-type: tm+mt
-source-wordcount: '355'
+source-wordcount: 355
 ht-degree: 12%
 
 ---
@@ -15,7 +20,7 @@ ht-degree: 12%
 
 开发人员可以插入自定义资产应用程序（也称为自定义工作程序），以解决自定义用例。 该服务在Adobe [!DNL I/O Runtime]上工作。 它可通过在Node.js中编写的[!DNL Adobe Developer App Builder]个Headless应用程序进行扩展。 他们可以执行自定义操作，例如调用外部API以执行图像操作或利用[!DNL Adobe Sensei]支持。
 
-[!DNL Adobe Developer App Builder]是一个框架，用于在Adobe [!DNL I/O Runtime]上生成和部署自定义Web应用程序以扩展Adobe Experience Cloud解决方案。 要创建自定义应用程序，开发人员可以利用[!DNL React Spectrum] （Adobe的UI工具包）、创建微服务、创建自定义事件和编排API。 请参阅Adobe Developer App Builder[&#128279;](https://developer.adobe.com/app-builder/docs/intro_and_overview/#)的文档。
+[!DNL Adobe Developer App Builder]是一个框架，用于在Adobe [!DNL I/O Runtime]上生成和部署自定义Web应用程序以扩展Adobe Experience Cloud解决方案。 要创建自定义应用程序，开发人员可以利用[!DNL React Spectrum] （Adobe的UI工具包）、创建微服务、创建自定义事件和编排API。 请参阅Adobe Developer App Builder](https://developer.adobe.com/app-builder/docs/intro_and_overview/#)的[文档。
 
 >[!NOTE]
 >
@@ -25,7 +30,7 @@ ht-degree: 12%
 
 [!DNL Asset Compute Service]支持一些常见的业务用例，如基本图像处理、Adobe应用程序特定的转换以及协调复杂业务需求的自定义应用程序创建。
 
-您可以使用[!DNL Asset Compute] Web服务为不同的文件类型生成缩略图，为[支持的文件格式](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/file-format-support)生成高质量的图像渲染。 查看通过自定义配置支持的[用例](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
+您可以使用[!DNL Asset Compute] Web服务为不同的文件类型生成缩略图，为[支持的文件格式](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support)生成高质量的图像渲染。 查看通过自定义配置支持的[用例](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
 
 >[!NOTE]
 >
@@ -47,7 +52,7 @@ TBD: Should this be mentioned in the docs?
 >
 >* [在 [!DNL Adobe Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/asset-microservices-overview)中使用资源微服务进行资源处理的概述。
 >* [Adobe Developer App Builder文档](https://developer.adobe.com/app-builder/docs/intro_and_overview/#)。
->* [支持的处理文件格式](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/file-format-support)。
+>* [支持的处理文件格式](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support)。
 
 <!-- 
 **TBD:**

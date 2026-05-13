@@ -1,31 +1,36 @@
 ---
 title: '[!DNL Asset Compute Service] HTTP API'
-description: 用于创建自定义应用程序的[!DNL Asset Compute Service] HTTP API。
+description: '[!DNL Asset Compute Service] HTTP API用于创建自定义应用程序。'
 exl-id: 4b63fdf9-9c0d-4af7-839d-a95e07509750
-source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
+TQID: https://experienceleague.adobe.com/fewAzOtKA-XTmpv-6Q0mlqXpalMWva6GpHlJSW6wPog
+product_v2: id: d09181b5-a36a-43de-ba01-36641440bc43id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+feature_v2: id: a01bfd36-4ab8-4bf8-9dc0-5b45b890552eid: ae478996-b206-4712-9b0c-dc78a2644453id: da0dfbce-df02-4f8b-b32d-a4e3b1d05085id: e17747bc-9b7b-44e6-a443-f54229a02620
+role_v2: id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 2510f77fed8d0f0708e09f32d0b13a437d2ede4f
 workflow-type: tm+mt
-source-wordcount: '2995'
+source-wordcount: 2995
 ht-degree: 3%
 
 ---
 
 # [!DNL Asset Compute Service] HTTP API {#asset-compute-http-api}
 
-API的使用仅限于开发目的。 该API在开发自定义应用程序时作为上下文提供。[!DNL Adobe Experience Manager] 作为[!DNL Cloud Service]，使用API将处理信息传递到自定义应用程序。 有关详细信息，请参阅[使用资源微服务和处理配置文件](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
+API的使用仅限于开发目的。 API在开发自定义应用程序时作为上下文提供。 [!DNL Adobe Experience Manager]作为[!DNL Cloud Service]使用该API将处理信息传递给自定义应用程序。 有关详细信息，请参阅[使用资产微服务和处理配置文件](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
 
 >[!NOTE]
 >
->[!DNL Asset Compute Service]只能作为[!DNL Cloud Service]与[!DNL Experience Manager]一起使用。
+>[!DNL Asset Compute Service]仅可用于[!DNL Experience Manager]作为[!DNL Cloud Service]。
 
-[!DNL Asset Compute Service] HTTP API的任何客户端都必须遵循此高级流：
+[!DNL Asset Compute Service] HTTP API的任何客户端都必须遵循此高级流程：
 
-1. 已将客户端配置为IMS组织中的[!DNL Adobe Developer Console]项目。 每个单独的客户端（系统或环境）需要其自己的独立项目来分离事件数据流。
+1. 客户端被设置为IMS组织中的[!DNL Adobe Developer Console]项目。 每个单独的客户端（系统或环境）都需要其自己的单独项目来分离事件数据流。
 
 1. 客户端使用[JWT（服务帐户）身份验证](https://developer.adobe.com/developer-console/docs/guides/)为技术帐户生成访问令牌。
 
-1. 客户端仅调用[`/register`](#register)一次以检索日志URL。
+1. 客户端只调用[`/register`](#register)一次以检索日志URL。
 
-1. 客户端为其要为其生成演绎版的每个资源调用[`/process`](#process-request)。 该调用是异步的。
+1. 客户端为要为其生成演绎版的每个资产调用[`/process`](#process-request)。 调用是异步调用。
 
 1. 客户端定期轮询日志以[接收事件](#asynchronous-events)。 成功处理节目（`rendition_created`事件类型）或发生错误（`rendition_failed`事件类型）时，它会接收每个请求节目的事件。
 
@@ -84,14 +89,14 @@ TBD: Change the existing URL to a new path when a new path for docs is available
 
 ### 注册请求 {#register-request}
 
-此API调用将设置[!DNL Asset Compute]客户端并提供事件日志URL。 此流程是一个幂等运算，只需为每个客户调用一次。 可以再次调用它以检索日志URL。
+此API调用设置[!DNL Asset Compute]客户端并提供事件日志URL。 此过程是一个幂等操作，每个客户端只需调用一次。 可以再次调用它以检索日志URL。
 
 | 参数 | 值 |
 |--------------------------|------------------------------------------------------|
 | 方法 | `POST` |
 | 路径 | `/register` |
 | 标头`Authorization` | 所有[授权相关标头](#authentication-and-authorization)。 |
-| 标头`x-request-id` | 可选，由客户端为跨系统的处理请求的唯一端到端标识符设置。 |
+| 标头`x-request-id` | 可选，由客户端设置，用于跨系统处理请求的唯一端到端标识符。 |
 | 请求正文 | 必须为空。 |
 
 ### 注册响应 {#register-response}
@@ -99,12 +104,12 @@ TBD: Change the existing URL to a new path when a new path for docs is available
 | 参数 | 值 |
 |-----------------------|------------------------------------------------------|
 | MIME类型 | `application/json` |
-| 标头`X-Request-Id` | 与`X-Request-Id`请求标头相同或生成一个唯一标头。 用于跨系统识别请求或支持请求，或两者都识别。 |
-| 响应正文 | 具有`journal`、`ok`或`requestId`字段的JSON对象。 |
+| 标头`X-Request-Id` | 与`X-Request-Id`请求标头相同或生成一个唯一标头。 用于标识跨系统的请求或支持请求，或同时使用两者。 |
+| 响应正文 | 包含`journal`、`ok`或`requestId`字段的JSON对象。 |
 
 HTTP状态代码为：
 
-* **200成功**：请求成功时。 `journal` URL会收到有关通过`/process`启动的异步处理结果的通知。 它将在成功完成时发出`rendition_created`个事件的警报，如果进程失败，则发出`rendition_failed`个事件的警报。
+* **200成功**：请求成功时。 `journal` URL接收有关通过`/process`启动的异步处理结果的通知。 它在成功完成时发出`rendition_created`个事件的警报，如果进程失败，则发出`rendition_failed`个事件的警报。
 
   ```json
   {
@@ -114,11 +119,11 @@ HTTP状态代码为：
   }
   ```
 
-* **401未授权**：当请求不具有有效的[身份验证](#authentication-and-authorization)时发生。 例如，访问令牌无效或API密钥无效。
+* **401 Unauthorized**：当请求没有有效的[身份验证](#authentication-and-authorization)时发生。 例如，访问令牌无效或API密钥无效。
 
-* **403禁止**：在请求没有有效的[授权](#authentication-and-authorization)时发生。 有效的访问令牌可能就是一个示例，但Adobe Developer Console项目（技术帐户）并未订阅所有必需的服务。
+* **403 Forbidden**：当请求没有有效的[授权](#authentication-and-authorization)时发生。 示例可能是有效的访问令牌，但Adobe Developer Console项目（技术帐户）未订阅所有必需服务。
 
-* **429请求过多**：此客户端或系统因其他原因过载时发生。 客户端应使用[指数回退](https://en.wikipedia.org/wiki/Exponential_backoff)重试。 正文为空。
+* **429请求太多**：发生在此客户端或系统过载时。 客户端应使用[指数回退](https://en.wikipedia.org/wiki/Exponential_backoff)重试。 正文为空。
 * **4xx错误**：出现任何其他客户端错误时注册失败。 通常，会返回此类的JSON响应，但不一定会发生所有错误：
 
   ```json
@@ -170,11 +175,11 @@ HTTP状态代码为：
   }
   ```
 
-* **401未授权**：当请求不具有有效的[身份验证](#authentication-and-authorization)时发生。 例如，访问令牌无效或API密钥无效。
+* **401 Unauthorized**：当请求没有有效的[身份验证](#authentication-and-authorization)时发生。 例如，访问令牌无效或API密钥无效。
 
-* **403禁止**：在请求没有有效的[授权](#authentication-and-authorization)时发生。 有效的访问令牌可能就是一个示例，但Adobe Developer Console项目（技术帐户）并未订阅所有必需的服务。
+* **403 Forbidden**：当请求没有有效的[授权](#authentication-and-authorization)时发生。 示例可能是有效的访问令牌，但Adobe Developer Console项目（技术帐户）未订阅所有必需服务。
 
-* **404未找到**：当提供的凭据未注册或无效时，将显示此状态。
+* **404未找到**：当提供的凭据未注册或无效时，将出现此状态。
 
   ```json
   {
@@ -183,19 +188,9 @@ HTTP状态代码为：
   }
   ```
 
-* **429请求过多**：在系统过载时发生。 客户端应使用[指数回退](https://en.wikipedia.org/wiki/Exponential_backoff)重试。 尸体是空的。
+* **429请求太多**：在系统过载时发生。 客户端应使用[指数回退](https://en.wikipedia.org/wiki/Exponential_backoff)重试。 正文为空。
 
-* **4xx错误**：在出现任何其他客户端错误且注销失败时发生。 通常返回这样的JSON响应，尽管这不能保证所有错误都存在：
-
-  ```json
-  {
-      "ok": false,
-      "requestId": "1234567890",
-      "message": "error message"
-  }
-  ```
-
-* **5xx错误**：在存在任何其他服务器端错误并且注册失败时发生。 通常返回这样的JSON响应，尽管这不能保证所有错误都存在：
+* **4xx错误**：发生任何其他客户端错误时注销失败。 通常，会返回此类的JSON响应，但不一定会发生所有错误：
 
   ```json
   {
@@ -205,11 +200,21 @@ HTTP状态代码为：
   }
   ```
 
-## 处理请求 {#process-request}
+* **5xx错误**：发生任何其他服务器端错误且注册失败时。 通常，会返回此类的JSON响应，但不一定会发生所有错误：
 
-`process`操作提交一个作业，该作业可根据请求中的说明将源资源转换为多个格式副本。 有关成功完成（事件类型`rendition_created`）或任何错误（事件类型`rendition_failed`）的通知将发送到事件日志，在发出任意数量的`/process`请求之前，必须使用[`/register`](#register)检索一次该日志。 格式错误的请求会立即失败，错误代码为400。
+  ```json
+  {
+      "ok": false,
+      "requestId": "1234567890",
+      "message": "error message"
+  }
+  ```
 
-使用URL(如Amazon AWS S3预签名URL或Azure Blob存储SAS URL)引用二进制文件。 用于同时读取`source`资源（`GET`个URL）和写入格式副本（`PUT`个URL）。 客户端负责生成这些预签名的URL。
+## 流程请求 {#process-request}
+
+`process`操作提交的作业将根据请求中的说明将源资源转换为多个演绎版。 有关成功完成（事件类型`rendition_created`）或任何错误（事件类型`rendition_failed`）的通知将发送到事件日志，该日志必须在发出任意数量的`/process`请求之前使用[`/register`](#register)检索一次。 格式不正确的请求立即失败，并显示400错误代码。
+
+使用URL引用二进制文件，例如Amazon AWS S3预签名URL或Azure Blob Storage SAS URL。 用于读取`source`资源(`GET` URL)和写入演绎版(`PUT` URL)。 客户端负责生成这些预签名URL。
 
 | 参数 | 值 |
 |--------------------------|------------------------------------------------------|
@@ -217,7 +222,7 @@ HTTP状态代码为：
 | 路径 | `/process` |
 | MIME类型 | `application/json` |
 | 标头`Authorization` | 所有[授权相关标头](#authentication-and-authorization)。 |
-| 标头`x-request-id` | 可选。 客户端可设置唯一的端到端标识符以跟踪跨系统的处理请求。 |
+| 标头`x-request-id` | 可选。 客户端可以设置唯一的端到端标识符来跟踪跨系统的处理请求。 |
 | 请求正文 | 必须采用如下所述的流程请求JSON格式。 它提供了有关要处理的资产以及要生成的演绎版的说明。 |
 
 ### 处理请求JSON {#process-request-json}
@@ -374,7 +379,7 @@ HTTP状态代码为：
 
 | 名称 | 类型 | 描述 | 示例 |
 |-------------------|----------|-------------|---------|
-| `fmt` | `string` | 对于文本提取，演绎版目标格式也可以为`text`；对于将XMP元数据提取为xml，其目标格式也可以为`xmp`。 查看[支持的格式](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/file-format-support) | `png` |
+| `fmt` | `string` | 对于文本提取，演绎版目标格式也可以为`text`；对于将XMP元数据提取为xml，其目标格式也可以为`xmp`。 查看[支持的格式](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support) | `png` |
 | `worker` | `string` | [自定义应用程序](develop-custom-application.md)的URL。 必须为`https://` URL。 如果存在此字段，则自定义应用程序会创建演绎版。 然后，在自定义应用程序中使用任何其他设置演绎版字段。 | `"https://1234.adobeioruntime.net`<br>`/api/v1/web`<br>`/example-custom-worker-master/worker"` |
 | `target` | `string` | 应使用HTTP PUT将生成的演绎版上传到的URL。 | `http://w.com/img.jpg` |
 | `target` | `object` | 生成的演绎版的多部分预签名URL上传信息。 此信息针对具有此[多部分上传行为](https://jackrabbit.apache.org/oak/docs/apidocs/org/apache/jackrabbit/api/binary/BinaryUpload.html)的[AEM / Oak直接二进制上传](https://jackrabbit.apache.org/oak/docs/features/direct-binary-access.html)。<br>字段：<ul><li>`urls`：字符串数组，每个预签名部分URL一个</li><li>`minPartSize`：用于一个部分的最小大小= url</li><li>`maxPartSize`：用于一个部分的最大大小= url</li></ul> | `{ "urls": [ "https://part1...", "https://part2..." ], "minPartSize": 10000, "maxPartSize": 100000 }` |
@@ -382,7 +387,7 @@ HTTP状态代码为：
 
 ### 节目特定字段 {#rendition-specific-fields}
 
-有关当前支持的文件格式的列表，请参阅[支持的文件格式](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/file-format-support)。
+有关当前支持的文件格式的列表，请参阅[支持的文件格式](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support)。
 
 | 名称 | 类型 | 描述 | 示例 |
 |-------------------|----------|-------------|---------|
@@ -407,7 +412,7 @@ PNG格式用作水印。
 
 | 名称 | 类型 | 描述 | 示例 |
 |-------------------|----------|-------------|---------|
-| `scale` | `number` | 水印的比例，介于`0.0`和`1.0`之间。`1.0` 表示水印具有其原始比例(1:1)，较低的值会减小水印大小。 | 值`0.5`表示原始大小的一半。 |
+| `scale` | `number` | 水印的比例，介于`0.0`和`1.0`之间。 `1.0`表示水印具有其原始比例(1:1)，较低的值将减小水印大小。 | 值`0.5`表示原始大小的一半。 |
 | `image` | `url` | 用于添加水印的PNG文件的URL。 | |
 
 ## 异步事件 {#asynchronous-events}
@@ -454,5 +459,5 @@ PNG格式用作水印。
 | `RenditionFormatUnsupported` | 给定的源不支持请求的演绎版格式。 |
 | `SourceUnsupported` | 特定源不受支持，即使类型受支持也是如此。 |
 | `SourceCorrupt` | 源数据已损坏。 它包含空文件。 |
-| `RenditionTooLarge` | 无法使用`target`中提供的预签名URL上载演绎版。 实际演绎版大小可在`repo:size`中作为元数据使用，客户端使用它重新处理此演绎版，并保留正确数量的预签名URL。 |
+| `RenditionTooLarge` | 无法使用`target`中提供的预签名URL上载节目。 实际演绎版大小在`repo:size`中作为元数据提供，客户端使用它重新处理此演绎版，并保留正确数量的预签名URL。 |
 | `GenericError` | 任何其他意外错误。 |

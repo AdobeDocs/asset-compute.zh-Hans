@@ -2,9 +2,13 @@
 title: 测试和调试 [!DNL Asset Compute Service] 自定义应用程序
 description: 测试和调试 [!DNL Asset Compute Service] 自定义应用程序。
 exl-id: c2534904-0a07-465e-acea-3cb578d3bc08
-source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
+TQID: https://experienceleague.adobe.com/43OlMHlUxu78CbxOEaAXi7gN6pwYS3QqGgV44WDSyCc
+product_v2: id: d09181b5-a36a-43de-ba01-36641440bc43id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+feature_v2: id: da0dfbce-df02-4f8b-b32d-a4e3b1d05085
+role_v2: id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+source-git-commit: 2510f77fed8d0f0708e09f32d0b13a437d2ede4f
 workflow-type: tm+mt
-source-wordcount: '855'
+source-wordcount: 855
 ht-degree: 0%
 
 ---
@@ -13,7 +17,7 @@ ht-degree: 0%
 
 ## 为自定义应用程序运行单元测试 {#test-custom-worker}
 
-在您的计算机上安装[Docker桌面](https://www.docker.com/get-started)。 要测试自定义工作进程，请在应用程序的根目录下运行以下命令：
+在您的计算机上安装[Docker桌面](https://www.docker.com/get-started)。 要测试自定义工作程序，请在应用程序的根目录下运行以下命令：
 
 ```bash
 $ aio app test
@@ -26,17 +30,17 @@ To run tests for a custom application, run `aio asset-compute test-worker` comma
 Document interactively running `adobe-asset-compute` commands `test-worker` and `run-worker`.
 -->
 
-此命令为项目中的Asset compute应用程序操作运行自定义单元测试框架，如下所述。 它通过`package.json`文件中的配置进行挂接。 也可以使用JavaScript单元测试，例如Jest。 `aio app test`同时运行这两者。
+此命令在项目中为Asset Compute应用程序操作运行自定义单元测试框架，如下所述。 它通过`package.json`文件中的配置挂接。 也可以使用JavaScript单元测试，例如Jest。 `aio app test`同时运行两者。
 
-[aio-cli-plugin-asset-compute](https://github.com/adobe/aio-cli-plugin-asset-compute#install-as-local-devdependency)插件作为开发依赖项嵌入到自定义应用程序应用程序应用程序中，因此不需要安装在生成/测试系统上。
+[aio-cli-plugin-asset-compute](https://github.com/adobe/aio-cli-plugin-asset-compute#install-as-local-devdependency)插件作为开发依赖项嵌入到自定义应用程序应用程序应用程序中，因此不需要将其安装在生成/测试系统中。
 
 ### 应用单元测试框架 {#unit-test-framework}
 
-利用Asset compute应用单元测试框架，无需编写任何代码即可测试应用程序。 它依赖源文件来呈现应用程序文件的原理。 必须设置特定的文件和文件夹结构，以使用测试源文件、可选参数、预期格式副本和自定义验证脚本定义测试用例。 默认情况下，会比较格式副本，以确定字节相等。 此外，可以使用简单的JSON文件轻松模拟外部HTTP服务。
+Asset Compute应用程序单元测试框架允许您在不编写任何代码的情况下测试应用程序。 它依赖于源文件的格式副本应用原理。 必须设置特定的文件和文件夹结构，以使用测试源文件、可选参数、预期呈现版本和自定义验证脚本定义测试用例。 默认情况下，会比较格式副本以保持字节相等。 此外，可以使用简单的JSON文件轻松模拟外部HTTP服务。
 
 ### 添加测试 {#add-tests}
 
-应在项目根级别的`test`文件夹中进行测试。 每个应用程序的测试用例应在路径`test/asset-compute/<worker-name>`中，每个测试用例都有一个文件夹：
+测试应位于项目根级别的`test`文件夹内。 每个应用程序的测试用例应位于路径`test/asset-compute/<worker-name>`中，每个测试用例有一个文件夹：
 
 ```yaml
 action/
@@ -63,7 +67,7 @@ test/
             mock-console.adobe.io.json
 ```
 
-查看[自定义应用程序示例](https://github.com/adobe/asset-compute-example-workers/)以了解一些示例。 以下是详细参考。
+请查看[自定义应用程序示例](https://github.com/adobe/asset-compute-example-workers/)以了解一些示例。 详细参考如下。
 
 ### 测试输出 {#test-output}
 
@@ -71,7 +75,7 @@ Adobe Developer App Builder应用程序根目录中的`build`目录包含自定�
 
 ### 模拟外部服务 {#mock-external-services}
 
-您可以为测试方案创建`mock-<HOST_NAME>.json`文件（HOST_NAME是要模拟的特定主机），从而模拟操作中的外部服务调用。 一个示例用例是对S3进行单独调用的应用程序。 新的测试结构如下所示：
+您可以通过为测试方案创建`mock-<HOST_NAME>.json`文件（HOST_NAME是您要模拟的特定主机），在操作中模拟外部服务调用。 示例用例是对S3进行单独调用的应用程序。 新的测试结构将如下所示：
 
 ```json
 test/
@@ -85,7 +89,7 @@ test/
         mock-<HOST_NAME2>.json
 ```
 
-模拟文件是JSON格式的http响应。 有关详细信息，请参阅[此文档](https://www.mock-server.com/mock_server/creating_expectations.html)。 如果要模拟多个主机名，请定义多个`mock-<mocked-host>.json`文件。 下面是名为`mock-google.com.json`的`google.com`的示例模拟文件：
+模拟文件是JSON格式的http响应。 有关详细信息，请参阅[此文档](https://www.mock-server.com/mock_server/creating_expectations.html)。 如果要模拟多个主机名，请定义多个`mock-<mocked-host>.json`文件。 以下是名为`mock-google.com.json`的`google.com`的示例模拟文件：
 
 ```json
 [{
@@ -102,11 +106,11 @@ test/
 }]
 ```
 
-示例`worker-animal-pictures`包含与之交互的维基媒体服务的[模拟文件](https://github.com/adobe/asset-compute-example-workers/blob/master/projects/worker-animal-pictures/test/asset-compute/worker-animal-pictures/simple-test/mock-upload.wikimedia.org.json)。
+示例`worker-animal-pictures`包含与其交互的Wikimedia服务的[模拟文件](https://github.com/adobe/asset-compute-example-workers/blob/master/projects/worker-animal-pictures/test/asset-compute/worker-animal-pictures/simple-test/mock-upload.wikimedia.org.json)。
 
 #### 跨测试用例共享文件 {#share-files-across-test-cases}
 
-如果跨多个Adobe共享`file.*`、`params.json`或`validate`脚本，则测试建议使用相对符号链接。 它们受Git支持。 确保为您的共享文件指定一个唯一名称，因为您可能具有不同的名称。 在下面的示例中，测试混合并匹配一些共享文件及其自己的文件：
+如果您在多个测试中共享`file.*`、`params.json`或`validate`脚本，Adobe建议使用相对符号链接。 它们受Git支持。 请确保为您的共享文件指定一个唯一的名称，因为您可能具有不同的名称。 在下面的示例中，测试将几个共享文件与其自己的文件进行混合和匹配：
 
 ```json
 tests/

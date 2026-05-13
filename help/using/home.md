@@ -2,10 +2,14 @@
 title: '[!DNL Adobe Asset Compute Service]用户指南'
 description: 本文档介绍了 [!DNL Asset Compute Service] 任务，例如简介、如何开发、管理、部署和排除自定义代码故障。
 exl-id: 5acf87d1-a391-4802-bfce-e367fc8564df
-source-git-commit: 63f83ff33ac6cd090fac4f6db18000155f464643
+TQID: https://experienceleague.adobe.com/pLoude239KQnS4no1oSFaNzfzlHFdXvprrBg-NMUI0g
+product_v2: id: d09181b5-a36a-43de-ba01-36641440bc43id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+role_v2: id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+topic_v2: id: a004cc84-67b9-4a33-a3a7-8ec7273ef4dc
+source-git-commit: 2510f77fed8d0f0708e09f32d0b13a437d2ede4f
 workflow-type: tm+mt
-source-wordcount: '206'
-ht-degree: 0%
+source-wordcount: 237
+ht-degree: 5%
 
 ---
 
@@ -15,9 +19,9 @@ ht-degree: 0%
 
 本文档涵盖[!DNL Asset Compute Service]主题，例如如何开发、管理、部署和排除自定义代码故障。 若要了解[!DNL Asset Compute Service]是什么，请转到此[简介](introduction.md)。 另请参阅[该服务可为您做什么](introduction.md#possible-use-cases-benefits)。
 
-[!DNL Asset Compute Service]支持多种文件格式的转换并与许多Adobe服务集成。 查看[支持的文件格式和集成服务的列表](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/file-format-support)。
+[!DNL Asset Compute Service]支持多种文件格式的转换并与许多Adobe服务集成。 查看[支持的文件格式和集成服务的列表](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/assets/file-format-support)。
 
-查看有关[as a [!DNL Adobe Experience Manager]  [!DNL Cloud Service]中提供的](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/asset-microservices-overview)资源微服务功能以及如何在[!DNL Experience Manager]中使用微服务的概述。
+查看有关 [!DNL Adobe Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/asset-microservices-overview)中提供的[资源微服务功能以及如何在[!DNL Experience Manager]中使用微服务的概述。
 
 [!DNL Asset Compute Service]可扩展性是在[github.com/adobe](https://github.com/adobe)上的开放开发模型下开发的，它欢迎扩展开发人员的参与。 与开发、创建、测试和部署自定义应用程序相关的所有组件都是开源的。 查看[计算服务](contribute-to-compute-service.md)的参与方式及位置。
 

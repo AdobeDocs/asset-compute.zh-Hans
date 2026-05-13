@@ -2,16 +2,19 @@
 title: 了解如何扩展 [!DNL Asset Compute Service]
 description: 何时以及如何扩展 [!DNL Asset Compute Service] 功能以进行自定义资产处理。
 exl-id: 3b903364-34cc-44d5-9a03-24a0102cf85d
-source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
+TQID: https://experienceleague.adobe.com/T-Q9ssFC8lirvK3Wl7goCbvso0k--ubsO64cF5MmNn0
+product_v2: id: d09181b5-a36a-43de-ba01-36641440bc43id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+role_v2: id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+source-git-commit: 2510f77fed8d0f0708e09f32d0b13a437d2ede4f
 workflow-type: tm+mt
-source-wordcount: '304'
+source-wordcount: 304
 ht-degree: 11%
 
 ---
 
 # 可扩展性简介 {#introduction-to-extensibilty}
 
-[在 [!DNL Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/asset-microservices-overview)中处理用户档案，可满足许多演绎版要求，如转换为格式和调整图像大小。 更复杂的业务需求可能需要一种定制的解决方案，以满足组织的需求。[!DNL Asset Compute Service] 可以通过创建从[!DNL Experience Manager]中的处理配置文件调用的自定义应用程序来扩展。 这些自定义应用程序符合[支持的用例](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
+[在 [!DNL Experience Manager] as a [!DNL Cloud Service]](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/asset-microservices-overview)中处理用户档案，可满足许多演绎版要求，如转换为格式和调整图像大小。 更复杂的业务需求可能需要一种定制的解决方案，以满足组织的需求。 通过创建从[!DNL Experience Manager]中的处理配置文件调用的自定义应用程序，可以扩展[!DNL Asset Compute Service]。 这些自定义应用程序符合[支持的用例](https://experienceleague.adobe.com/zh-hans/docs/experience-manager-cloud-service/content/assets/manage/asset-microservices-configure-and-use)。
 
 >[!NOTE]
 >
