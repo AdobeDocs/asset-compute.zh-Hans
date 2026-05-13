@@ -2,9 +2,15 @@
 title: 参与 [!DNL Asset Compute Service]的开源组件
 description: 参与 [!DNL Asset Compute Service]的开源组件。
 exl-id: 99a4b4d9-4709-4f8e-9f8c-96ba1783c4c3
-source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
+TQID: https://experienceleague.adobe.com/LAVDCVO3tXCtApoq2h-ZLHN-7Q4rrB88CUrtJ-sKbcE
+product_v2:
+  - id: d09181b5-a36a-43de-ba01-36641440bc43
+  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+role_v2:
+  - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+source-git-commit: 2510f77fed8d0f0708e09f32d0b13a437d2ede4f
 workflow-type: tm+mt
-source-wordcount: '225'
+source-wordcount: 225
 ht-degree: 2%
 
 ---

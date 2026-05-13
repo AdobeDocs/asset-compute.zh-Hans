@@ -2,9 +2,19 @@
 title: 疑难解答 [!DNL Asset Compute Service]
 description: 使用 [!DNL Asset Compute Service]对自定义应用程序进行故障排除和调试。
 exl-id: 017fff91-e5e9-4a30-babf-5faa1ebefc2f
-source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
+TQID: https://experienceleague.adobe.com/ccEul0gYUEBOlgZmDcpy99sP4AY6GMb108xJd2WjcNI
+product_v2:
+  - id: d09181b5-a36a-43de-ba01-36641440bc43
+  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+feature_v2:
+  - id: a01bfd36-4ab8-4bf8-9dc0-5b45b890552e
+role_v2:
+  - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+topic_v2:
+  - id: c1579802-ddd4-4214-8a91-97b2066abe11
+source-git-commit: 2510f77fed8d0f0708e09f32d0b13a437d2ede4f
 workflow-type: tm+mt
-source-wordcount: '293'
+source-wordcount: 293
 ht-degree: 0%
 
 ---
