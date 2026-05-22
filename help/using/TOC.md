@@ -5,13 +5,14 @@ solution: Experience Manager, Experience Manager Assets
 product_v2:
   - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
   - id: d09181b5-a36a-43de-ba01-36641440bc43
+usetq: true
 type: Documentation
 role: Developer
 feature: Asset Compute Microservices
 user-guide-title: Asset Compute Service指南
 user-guide-description: 本文档介绍了 [!DNL Asset Compute Service] 任务，例如如何开发、管理、部署自定义代码以及对其进行疑难解答。
 breadcrumb-title: Asset Compute Service指南
-source-git-commit: 7997d284c6051dd2b9f7635f955bdc49d52e843a
+source-git-commit: d39824c90b25004d67cec7122f039e9d238ea0fe
 workflow-type: tm+mt
 source-wordcount: 109
 ht-degree: 16%
