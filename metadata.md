@@ -1,20 +1,18 @@
 ---
 cloud: Experience Cloud
-solution-title: Experience Manager, Experience Manager as a Cloud Service, Experience Manager Assets
-solution-hub-url: https://experienceleague.adobe.com/docs/experience-manager-cloud-service/assets/asset-microservices-overview.html?lang=zh-Hans
-solution-icon: assets/experience-cloud-logo-24.png
-getting-started-title: Getting Started
-getting-started-url: https://experienceleague.adobe.com/docs/experience-manager-cloud-service/assets/asset-microservices-overview.html?lang=zh-Hans
-tutorials-title: Tutorials
-tutorials-url: https://experienceleague.adobe.com/docs/experience-manager-learn/assets/overview.html?lang=zh-Hans
+solution: Experience Manager, Experience Manager Assets
+product_v2: id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8id: d09181b5-a36a-43de-ba01-36641440bc43
+usetq: true
+type: Documentation
+role: Developer
 mini-toc-levels: 2
 feature-set: Experience Manager Assets
-git-repo: https://github.com/AdobeDocs/asset-compute.zh-Hans
+git-repo: https://github.com/AdobeDocs/asset-compute.en
 index: true
 recommendations: noDisplay
-source-git-commit: aed361a577fc53caec4118e417b1c0c814617b51
+source-git-commit: adfa6b066d5b77362e8dd8a10e164eaea6129abc
 workflow-type: tm+mt
-source-wordcount: '152'
+source-wordcount: 152
 ht-degree: 1%
 
 ---
