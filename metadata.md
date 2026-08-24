@@ -9,7 +9,7 @@ type: Documentation
 role: Developer
 mini-toc-levels: 2
 feature-set: Experience Manager Assets
-git-repo: https://github.com/AdobeDocs/asset-compute.en
+git-repo: https://github.com/AdobeDocs/asset-compute.zh-Hans
 index: true
 recommendations: noDisplay
 source-git-commit: adfa6b066d5b77362e8dd8a10e164eaea6129abc
