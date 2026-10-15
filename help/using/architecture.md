@@ -1,24 +1,27 @@
 ---
-title: ' [!DNL Asset Compute Service]的架构'
-description: ' [!DNL Asset Compute Service] API、应用程序和SDK如何协作以提供云原生资源处理服务。'
+title: '[!DNL Asset Compute Service]的架构'
+description: '[!DNL Asset Compute Service] API、应用程序和SDK如何协作以提供云原生资源处理服务。'
 exl-id: 658ee4b7-5eb1-4109-b263-1b7d705e49d6
 TQID: https://experienceleague.adobe.com/HM9aYFHI98DFs4rfcStr-mpAfYVrjvMtlO6N7azO-20
 product_v2:
   - id: d09181b5-a36a-43de-ba01-36641440bc43
+    internal-label: Experience Manager Assets
   - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+    internal-label: Experience Manager
 feature_v2:
   - id: a01bfd36-4ab8-4bf8-9dc0-5b45b890552e
+    internal-label: APIs
 role_v2:
   - id: ff6a42d2-313e-452e-93a6-792e4fad9ff8
+    internal-label: Developer
 topic_v2:
   - id: aa2f3246-cb95-4b30-8899-fdf7d73550cc
+    internal-label: Reporting
 source-git-commit: 2510f77fed8d0f0708e09f32d0b13a437d2ede4f
 workflow-type: tm+mt
-source-wordcount: 494
+source-wordcount: '495'
 ht-degree: 1%
-
 ---
-
 # [!DNL Asset Compute Service]的架构 {#overview}
 
 [!DNL Asset Compute Service]基于无服务器Adobe [!DNL `I/O Runtime`]平台构建。 它为Assets提供Adobe Sensei内容服务支持。 向调用客户端（仅支持[!DNL Experience Manager]作为[!DNL Cloud Service]）提供它为该资源搜索的Adobe Sensei生成的信息。 返回的信息采用JSON格式。
