@@ -3,7 +3,9 @@ cloud: Experience Cloud
 solution: Experience Manager, Experience Manager Assets
 product_v2:
   - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+    internal-label: "Experience Manager"
   - id: d09181b5-a36a-43de-ba01-36641440bc43
+    internal-label: "Experience Manager Assets"
 usetq: true
 type: Documentation
 role: Developer
@@ -14,11 +16,9 @@ index: true
 recommendations: noDisplay
 source-git-commit: adfa6b066d5b77362e8dd8a10e164eaea6129abc
 workflow-type: tm+mt
-source-wordcount: 152
+source-wordcount: '147'
 ht-degree: 1%
-
 ---
-
 
 # 元数据供内部使用
 
